@@ -7,9 +7,6 @@ echo "Setting global username and email..."
 git config --global user.email "$EMAIL"
 git config --global user.name "$USERNAME"
 
-declare URL
-./geturl.sh URL
-
 echo "Cloning araic repo..."
 git clone "$URL"
 
