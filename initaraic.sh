@@ -10,9 +10,22 @@ git config --global user.name "$USERNAME"
 echo "Cloning araic repo..."
 git clone "$URL"
 
-echo "Setting remote url with token..."
+echo "Shortening file names..."
 cd araic
+
+if [ -f user_credentials.json ]; then
+    mv user_credentials.json usrcred.json
+    echo "user_credentials.json is now usrcred.json"
+fi
+
+if [ -f user_configuration.json ]; then
+    mv user_configuration.json usrcfg.json
+    echo "user_configuration.json is now usrcfg.json"
+fi
+
+echo "Setting remote url with token..."
 git remote set-url origin "$URL"
+
 cd ..
 
 echo "Done!"
